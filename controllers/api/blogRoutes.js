@@ -1,16 +1,16 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newProject = await Project.create({
+    const newBlog = await Blog.create({
       // https://sentry.io/answers/react-spread-operator-three-dots/#:~:text=These%20three%20dots%20are%20called,or%20object%20into%20separate%20variables.
       ...req.body,
-      user_id: req.session.user_id,
+      userId: req.session.userId,
     });
 
-    res.status(200).json(newProject);
+    res.status(200).json(newBlog);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -18,19 +18,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.destroy({
+    const blogData = await Blog.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        userId: req.session.userId,
       },
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    if (!blogData) {
+      res.status(404).json({ message: 'No Blog found with this id!' });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
   }

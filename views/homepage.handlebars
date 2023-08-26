@@ -5,58 +5,26 @@
 {{/section}} --}}
 {{!-- https://stackoverflow.com/questions/21737057/handlebars-with-express-different-html-head-for-different-pages --}}
 
-
 {{!-- embed header section in each sub nope --}}
 
 
-<!-- Loop over each object in the projects array -->
+<!-- Loop over each object in the blogs array -->
 
-{{#each projects as |project| }}
+{{#each blogs as |blog| }}
 
  
       {{!-- https://stackoverflow.com/questions/72279036/why-is-my-boostrap-card-header-not-filling-entire-width-of-the-card --}}
       <div class="container container-fluid card px-0 border-3 " >
         <row class= " d-inline-flex justify-content-between align-items-center headliner_color1 p-2">
-          <h3 >{{project.name}}</h3>
+          <h3 >{{blog.title}}</h3>
           <p class = 'fs-6'>
-            Posted by {{user.name}} on {{format_date project.date_created}} 
+            Posted by {{user.username}} on {{format_date blog.createdAt}} 
           </p>
         </row>
         <row class = "d-inline-flex justify-content-right align-items-center headliner_color2 p-2" >
-          <p>{{project.description }}</p>
+          <p>{{blog.content }}</p>
           {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
         </row>
       </div>
-
-
-
-
-
-
-
-
-
-
-{{!-- <div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
-  </div>
-</div> --}}
 
 {{/each}}
