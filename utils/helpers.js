@@ -19,4 +19,18 @@ module.exports = {
       return `<span for="img" aria-label="gear">⚙️</span>`;
     }
   },
+  //reg function
+  // section: function(name, options){
+  //   if(!this._sections) this._sections ={};
+  //   this._sections[name] = options.fn(this);
+  //   return null;
+  // }
+  //arrow function
+  section:(name, options) =>{
+    if(!this._sections) this._sections ={};
+    this._sections[name] = options.fn(this);
+    return null;
+  },
+
+
 };
