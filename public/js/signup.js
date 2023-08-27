@@ -31,6 +31,7 @@ console.log(usernamey)
 console.log(passwordy)
 
   if ( usernamey && passwordy) {
+    console.log('made it to here')
     const response = await fetch('/api/user', {
       method: 'POST',
       body: JSON.stringify({username: usernamey.value, password:passwordy.value }),
@@ -50,5 +51,5 @@ console.log(passwordy)
 //   .addEventListener('submit', loginFormHandler);
 
 document
-  .querySelector('.signup-form')
+  .querySelector('#signup-btn')
   .addEventListener('submit', signupFormHandler);

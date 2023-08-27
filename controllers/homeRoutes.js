@@ -27,36 +27,39 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
-  try {
-    const blogData = await Blog.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
-    });
+// router.get('/blog/:id', async (req, res) => {
+//   try {
+//     const blogData = await Blog.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['username'],
+//         },
+//       ],
+//     });
 
-    const blog = blogData.get({ plain: true });
+//     const blog = blogData.get({ plain: true });
 
-    res.render('blog', {
-      ...blog,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('blog', {
+//       ...blog,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard/:id', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
-    const blogData = await Blog.findAll({
+    const blogData = await Blog.findByPk(req.params.id,{
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: [
+            'id',
+            'username'
+          ],
         },
       ],
     });
@@ -72,6 +75,35 @@ router.get('/dashboard', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/newpost', async (req, res) => {
+  <h3>hello world!</h3>
+  // try {
+  //   // Get all blogs and JOIN with user data
+  //   const blogData = await Blog.findAll({
+  //     include: [
+  //       {
+  //         model: User,
+  //         attributes: [
+  //           'id',
+  //           'username'
+  //         ],
+  //       },
+  //     ],
+  //   });
+
+  //   // Serialize data so the template can read it
+  //   const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+  //   // Pass serialized data and session flag into template
+  //   res.render('newpost', { 
+  //     blogs, 
+  //     logged_in: req.session.logged_in 
+  //   });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 });
 
 // Use withAuth middleware to prevent access to route
