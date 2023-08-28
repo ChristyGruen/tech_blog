@@ -2,9 +2,6 @@ const router = require('express').Router();
 const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//I don't think that dashboard itself needs any api routes
-//just lists all of the users posts and has links to the newpost and editpost pages 
-
 router.post('/', withAuth, async (req, res) => {
   try {
     const newBlog = await Blog.create({

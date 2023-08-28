@@ -1,16 +1,16 @@
 const newPostHandler = async (event) => {
   event.preventDefault();
-
-  const title = document.querySelector('#blog-title').value.trim();
+  console.log('called newPostHandler')
+  const title = document.querySelector('#new-blog-title').value.trim();
   // const needed_funding = document.querySelector('#project-funding').value.trim();
-  const content = document.querySelector('#blog-content').value.trim();
+  const content = document.querySelector('#new-blog-content').value.trim();
 
   console.log(title);
   console.log(content);
 
   if (title &&  content) {
     console.log('whoohoo!');
-    const response = await fetch(`/api/blog`, {
+    const response = await fetch(`/api/newpost`, {
       method: 'POST',
       body: JSON.stringify({title, content }),
       headers: {
@@ -19,7 +19,8 @@ const newPostHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      // document.location.replace('/dashboard');
+      console.log('here we go')
     } else {
       alert('Failed to create new blog post');
     }
@@ -45,7 +46,7 @@ const newPostHandler = async (event) => {
 
 
 document
-  .querySelector('#new-post-create')
+  .querySelector(".new-post-create")
   .addEventListener('submit', newPostHandler);
 
 // document
