@@ -19,7 +19,7 @@ const newPostHandler = async (event) => {
 
     if (response.ok) {
       // document.location.replace('/dashboard');
-      console.log('here we go')
+      console.log('new blog post created')
     } else {
       alert('Failed to create new blog post');
     }

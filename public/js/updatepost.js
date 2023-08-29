@@ -7,9 +7,10 @@ const updatePostHandler = async (event) => {
   console.log(title);
   console.log(content);
 
-  if (event.target.hasAttribute('id')) {
+
     console.log('whoohoo!');
-    const id = event.target.getAttribute('id');
+    const id = location.href.split('updatepost/')[1]
+    console.log(id)
     const response = await fetch(`/api/blog/${id}`, {
       method: 'PUT',
       body: JSON.stringify({title, content }),
@@ -39,11 +40,9 @@ const updatePostHandler = async (event) => {
       alert('Failed to update blog post');
     }
   }
-};
 
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+  const id = location.href.split('updatepost/')[1]
 
     const response = await fetch(`/api/blog/${id}`, {
       method: 'DELETE',
@@ -55,7 +54,7 @@ const delButtonHandler = async (event) => {
     } else {
       alert('Failed to delete blog post');
     }
-  }
+  
 };
 
 

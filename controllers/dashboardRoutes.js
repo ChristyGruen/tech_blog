@@ -91,6 +91,7 @@ router.get('/updatepost/:id', async (req, res) => {
     const blog = blogData.get({ plain: true });
     console.log(blog)
     // Pass serialized data and session flag into template
+    
     res.render('updatepost', { 
       blog, 
       // logged_in: req.session.logged_in 

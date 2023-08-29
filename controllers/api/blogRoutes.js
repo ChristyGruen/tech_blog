@@ -19,11 +19,11 @@ router.post('/',  async (req, res) => {
 
 router.put('/:id',  async (req, res) => {
   try {
-    const blogData = await Blog.update({
+    const blogData = await Blog.update(
       // https://sentry.io/answers/react-spread-operator-three-dots/#:~:text=These%20three%20dots%20are%20called,or%20object%20into%20separate%20variables.
-      ...req.body,
-      userId: req.session.userId,
-    });
+      { ...req.body, userId: req.session.userId },
+      {where: { id: req.params.id }}
+    );
     console.log(blogData)
     res.status(200).json(blogData);
   } catch (err) {
@@ -36,9 +36,8 @@ router.delete('/:id', async (req, res) => {
   try {
     const blogData = await Blog.destroy({
       where: {
-        id: req.params.id,
-        userId: req.session.userId,
-      },
+        id: req.params.id
+      }
     });
 
     if (!blogData) {
