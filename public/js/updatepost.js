@@ -1,31 +1,40 @@
-//need to select by id
-
-
 const updatePostHandler = async (event) => {
   event.preventDefault();
-
   console.log('called updatePostHandler')
   const title = document.querySelector('#update-blog-title').value.trim();
-  // const needed_funding = document.querySelector('#project-funding').value.trim();
   const content = document.querySelector('#update-blog-content').value.trim();
 
   console.log(title);
   console.log(content);
 
-  if (event.target.hasAttribute('data-id')) {
+  if (event.target.hasAttribute('id')) {
     console.log('whoohoo!');
-    const id = event.target.getAttribute('data-id');
-    const response = await fetch(`/api/updatepost/${id}`, {
+    const id = event.target.getAttribute('id');
+    const response = await fetch(`/api/blog/${id}`, {
       method: 'PUT',
       body: JSON.stringify({title, content }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
+    
+  ////////////original with data-id
+  // if (event.target.hasAttribute('data-id')) {
+  //   console.log('whoohoo!');
+  //   const id = event.target.getAttribute('data-id');
+  //   const response = await fetch(`/api/blog/${id}`, {
+  //     method: 'PUT',
+  //     body: JSON.stringify({title, content }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+
+
 
     if (response.ok) {
-      document.location.replace('/dashboard');
-      console.log('here we go')
+      // document.location.replace('/dashboard');
+      console.log('updated blog')
     } else {
       alert('Failed to update blog post');
     }
@@ -36,14 +45,15 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/updatepost/${id}`, {
+    const response = await fetch(`/api/blog/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      console.log('blog deleted')
+      // document.location.replace('/dashboard');
     } else {
-      alert('Failed to delete project');
+      alert('Failed to delete blog post');
     }
   }
 };
@@ -51,9 +61,9 @@ const delButtonHandler = async (event) => {
 
 
 document
-  .querySelector(".post-update")
-  .addEventListener('submit', updatePostHandler);
+  .querySelector(".update-post-btn")
+  .addEventListener('click', updatePostHandler);
 
 document
-  .querySelector('#del-post-btn')
+  .querySelector('.delete-post-btn')
   .addEventListener('click', delButtonHandler);

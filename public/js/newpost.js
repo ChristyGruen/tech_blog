@@ -2,7 +2,6 @@ const newPostHandler = async (event) => {
   event.preventDefault();
   console.log('called newPostHandler')
   const title = document.querySelector('#new-blog-title').value.trim();
-  // const needed_funding = document.querySelector('#project-funding').value.trim();
   const content = document.querySelector('#new-blog-content').value.trim();
 
   console.log(title);
@@ -10,7 +9,7 @@ const newPostHandler = async (event) => {
 
   if (title &&  content) {
     console.log('whoohoo!');
-    const response = await fetch(`/api/newpost`, {
+    const response = await fetch(`/api/blog`, {
       method: 'POST',
       body: JSON.stringify({title, content }),
       headers: {
@@ -47,7 +46,7 @@ const newPostHandler = async (event) => {
 
 document
   .querySelector(".new-post-create")
-  .addEventListener('submit', newPostHandler);
+  .addEventListener('click', newPostHandler);
 
 // document
 //   .querySelector('#del-post-btn')

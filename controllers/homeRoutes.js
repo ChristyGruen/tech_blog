@@ -19,7 +19,8 @@ router.get('/', async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      blogs, 
+      blogs,
+      username: req.session.username,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -49,33 +50,41 @@ router.get('/', async (req, res) => {
 //   }
 // });
 
-router.get('/dashboard', async (req, res) => {
-  try {
-    // Get all blogs and JOIN with user data
-    const blogData = await Blog.findAll({
-      include: [
-        {
-          model: User,
-          attributes: [
-            'id',
-            'username'
-          ],
-        },
-      ],
-    });
+// router.get('/dashboard', async (req, res) => {
+//   try {
+//     const userId = req.session.userId
 
-    // Serialize data so the template can read it
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+//     // incomplete!! filter blogs by user !!
 
-    // Pass serialized data and session flag into template
-    res.render('dashboard', { 
-      blogs, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     // Get all blogs and JOIN with user data
+//     const blogData = await Blog.findAll(
+//       {
+//         where: { userId: req.session.userId }
+//       },
+//       {
+//       include: [
+//         {
+//           model: User,
+//           attributes: [
+//             'id',
+//             'username'
+//           ],
+//         },
+//       ],
+//     });
+
+//     // Serialize data so the template can read it
+//     const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+//     // Pass serialized data and session flag into template
+//     res.render('dashboard', { 
+//       blogs, 
+//       logged_in: req.session.logged_in 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // router.get('/dashboard/:id', async (req, res) => {
 //   try {
@@ -105,61 +114,61 @@ router.get('/dashboard', async (req, res) => {
 //   }
 // });
 
-router.get('/newpost', async (req, res) => {
-  try {
-    // Get all blogs and JOIN with user data
-    const blogData = await Blog.findAll({
-      include: [
-        {
-          model: User,
-          attributes: [
-            'id',
-            'username'
-          ],
-        },
-      ],
-    });
+// router.get('/newpost', async (req, res) => {
+//   try {
+//     // Get all blogs and JOIN with user data
+//     const blogData = await Blog.findAll({
+//       include: [
+//         {
+//           model: User,
+//           attributes: [
+//             'id',
+//             'username'
+//           ],
+//         },
+//       ],
+//     });
 
-    // Serialize data so the template can read it
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+//     // Serialize data so the template can read it
+//     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('newpost', { 
-      blogs, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     // Pass serialized data and session flag into template
+//     res.render('newpost', { 
+//       blogs, 
+//       logged_in: req.session.logged_in 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-router.get('/updatepost', async (req, res) => {
-  try {
-    // Get all blogs and JOIN with user data
-    const blogData = await Blog.findAll({
-      include: [
-        {
-          model: User,
-          attributes: [
-            'id',
-            'username'
-          ],
-        },
-      ],
-    });
+// router.get('/updatepost', async (req, res) => {
+//   try {
+//     // Get all blogs and JOIN with user data
+//     const blogData = await Blog.findAll({
+//       include: [
+//         {
+//           model: User,
+//           attributes: [
+//             'id',
+//             'username'
+//           ],
+//         },
+//       ],
+//     });
 
-    // Serialize data so the template can read it
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+//     // Serialize data so the template can read it
+//     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('update', { 
-      blogs, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     // Pass serialized data and session flag into template
+//     res.render('update', { 
+//       blogs, 
+//       logged_in: req.session.logged_in 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Use withAuth middleware to prevent access to route
 // router.get('/dashboard', withAuth, async (req, res) => {

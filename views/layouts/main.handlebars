@@ -28,7 +28,11 @@
               <a class="nav-link" style = 'color: rgb(160, 180, 160)' href="/dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style = 'color: rgb(160, 180, 160)' href="/login">Login</a>
+              {{#if logged_in}}
+                <a class="nav-link logout-btn" style = 'color: rgb(160, 180, 160)' href="/logout">logout</a>
+              {{else}}
+                <a class="nav-link login-btn" style = 'color: rgb(160, 180, 160)' href="/login">Login</a>
+              {{/if}}
             </li>
           </ul>
         </div>
