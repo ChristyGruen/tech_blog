@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class = 'page_color'>
+  {{!-- https://getbootstrap.com/docs/5.0/components/navbar/ --}}
+  <div class = 'container-fluid headliner_color1 pb-4'>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        
+        {{!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> --}}
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav" style = 'color: rgb(160, 180, 160)'>
+            <li class="nav-item">
+              <a class="nav-link active" style = 'color: rgb(160, 180, 160)' aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style = 'color: rgb(160, 180, 160)' href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              {{#if logged_in}}
+                <a class="nav-link logout-btn" style = 'color: rgb(160, 180, 160)' href="/logout">logout</a>
+              {{else}}
+                <a class="nav-link login-btn" style = 'color: rgb(160, 180, 160)' href="/login">Login</a>
+              {{/if}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div>
+      <a class=" headliner_pill p-2" href="#">The Tech Blog {{{_sections.head}}}</a>
+    </div>
+  </div>
+{{!-- https://stackoverflow.com/questions/21737057/handlebars-with-express-different-html-head-for-different-pages --}}
+
+
+{{!-- consider using a partial to set the header? --}}
+
+{{!-- end navbar --}}
+
+
+
+
+
+  
+  <div class="flex-column justify-space-around">
+    {{!-- <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <span role="img" aria-label="money">💸</span>
+        <a href="/">Fund My Project!</a>
+      </h1>
+      <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header> --}}
+    
+    <main class="container container-fluid mt-5  ">
+       {{!-- didn't really use this https://getbootstrap.com/docs/4.0/components/card/ 
+       this will go into the homepage handlebars 
+       https://stackoverflow.com/questions/72279036/why-is-my-boostrap-card-header-not-filling-entire-width-of-the-card
+       <div class="container container-fluid card px-0 border-3 " >
+         <row class= " d-inline-flex justify-content-between align-items-center headliner_color1">
+          <h3 >Card title</h3>
+          <h6>Posted by Zandromus on 5/8/2020</h6>
+        </row>
+        <row class = "d-inline-flex justify-content-right align-items-center headliner_color2" >
+          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+           <a href="#" class="btn btn-primary">Go somewhere</a> 
+        </row>
+      </div> --}}
+
+
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

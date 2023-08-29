@@ -1,0 +1,38 @@
+
+{{!-- responsive header section attempt --}}
+{{!-- {{#section 'head'}}
+  <meta name = 'robots' content = 'noindex'>
+{{/section}} --}}
+{{!-- https://stackoverflow.com/questions/21737057/handlebars-with-express-different-html-head-for-different-pages --}}
+
+
+{{!-- embed header section in each sub NOPE --}}
+
+
+ 
+<!-- Loop over each object in the blogs array -->
+
+{{!-- need to add links to open individual blogs for update/delete --}}
+          {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+
+{{#each blogs as |blog| }}
+
+ 
+      {{!-- https://stackoverflow.com/questions/72279036/why-is-my-boostrap-card-header-not-filling-entire-width-of-the-card --}}
+      
+      <a href = '/dashboard/updatepost/{{blog.id}}' class="container container-fluid card px-0 border-3" style=" border-color: rgb(90, 89, 89)" role = 'button' id = {{blog.id}}>
+        <row class= " d-inline-flex justify-content-between align-items-center headliner_color3 p-2">
+          <h3 >{{blog.title}}</h3>
+          <p class = 'fs-4'>
+            {{format_date blog.createdAt}} 
+          </p>
+        </row>
+      </a>
+{{/each}}
+          {{!-- ?this shou'ld open up/show form --}}
+      <div class="text-center" id = 'new-post-btn'>
+        <a href = '/dashboard/newpost' class="btn btn-primary" role = 'button'>+ New Post</a>
+      </div>
+
+
+{{!-- <script src="/js/dashboard.js"></script> --}}

@@ -1,0 +1,57 @@
+/* header, .project:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+} */
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #1b89bc;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #065b83;
+  text-decoration: underline;
+}
+
+/* .dollar-amount {
+  color: #056605;
+  font-weight: bold;
+  margin-left: -5px;
+} */
+
+.headliner_color1 {
+  color: rgb(160, 180, 160);
+  background-color: rgb(45, 38, 38);
+}
+
+.headliner_color2 {
+  color: rgb(45, 38, 38);
+  background-color: rgb(160, 180, 160);
+}
+
+.headliner_color3 {
+  color: lightgrey;
+  background-color: rgb(90, 89, 89);
+}
+
+.page_color{
+  background-color: rgb(160, 180, 160);
+}
+
+/* https://www.geeksforgeeks.org/how-to-add-a-box-shadow-on-one-side-of-an-element-using-css/# */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow */
+.headliner_pill {
+  border: 2px solid rgb(160, 180, 160);
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgb(160, 180, 160);
+  color: rgb(45, 38, 38);
+  font-size: x-large;
+  font-weight: bolder;
+  box-shadow: 5px 5px grey;
+}
+
