@@ -14,7 +14,7 @@
 
  
       {{!-- https://stackoverflow.com/questions/72279036/why-is-my-boostrap-card-header-not-filling-entire-width-of-the-card --}}
-      <div class="container container-fluid card px-0 border-3 " >
+      <a href = '/comment/{{blog.id}}' class="container container-fluid card px-0 border-3 " >
         <row class= " d-inline-flex justify-content-between align-items-center headliner_color1 p-2">
           <h3 >{{blog.title}}</h3>
           <p class = 'fs-6'>
@@ -25,6 +25,6 @@
           <p>{{blog.content }}</p>
           {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
         </row>
-      </div>
+      </a>
 
 {{/each}}

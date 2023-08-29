@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Model View Controller is confusing",
+    "userId": 3,
+    "blogId":1
+  },
+  {
+    "content": "Authentic without authorization",
+    "userId": 2,
+    "blogId":2 
+  },
+  {
+    "content": "ORMs are like querying in sql in the dark.  As long as you have your fingers on the right keys, it's fine, but you can't really see what happens until after the fact.",
+    "userId": 1,
+    "blogId":3 
+  }
+]

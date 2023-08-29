@@ -7,12 +7,13 @@ router.get('/', async (req, res) => {
     const userId = req.session.userId
     console.log(userId)
 
-    // incomplete!! filter blogs by user !!
+    // incomplete!! filter blogs by user !!  req.session.userId isn't working anymore!!!
+
 
     // Get all blogs and JOIN with user data
     const blogData = await Blog.findAll(
       {
-        where: { userId: 1
+        where: { userId: 2
           // req.session.userId 
         }
       },
