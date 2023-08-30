@@ -9,11 +9,11 @@ router.get('/', async (req, res) => {
 
     // incomplete!! filter blogs by user !!  req.session.userId isn't working anymore!!!
 
-
+//////////////////////////REQ.SESSION.USERID IS OVERRIDDEN HERE
     // Get all blogs and JOIN with user data
     const blogData = await Blog.findAll(
       {
-        where: { userId: 2
+        where: { userId: 1
           // req.session.userId 
         }
       },
