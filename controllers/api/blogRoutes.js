@@ -24,7 +24,7 @@ router.put('/:id',  async (req, res) => {
       { ...req.body, userId: req.session.userId },
       {where: { id: req.params.id }}
     );
-    console.log(blogData)
+    console.log(blogData);
     res.status(200).json(blogData);
   } catch (err) {
     console.log(err)

@@ -34,7 +34,7 @@ const updatePostHandler = async (event) => {
 
 
     if (response.ok) {
-      // document.location.replace('/dashboard');
+      document.location.replace('/dashboard');
       console.log('updated blog')
     } else {
       alert('Failed to update blog post');
@@ -50,7 +50,7 @@ const delButtonHandler = async (event) => {
 
     if (response.ok) {
       console.log('blog deleted')
-      // document.location.replace('/dashboard');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to delete blog post');
     }
