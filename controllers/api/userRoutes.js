@@ -73,6 +73,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
+
+//does this work if the session is saved in the database?
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

@@ -18,7 +18,8 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 24*60*60*1000,  //max age is one day
+    // maxAge: 24*60*60*1000,  //max age is one day
+    maxAge: 600000, //max age is 10 minutes
     // maxAge: 300000, max age is 5 minutes
     httpOnly: true,
     secure: false,
