@@ -1,14 +1,14 @@
 [
   {
     "username": "Hercules",
-    "password": "password12345"
+    "password": "$2b$10$Okanyov3cCItfb6LJyXbiOHwz0j7Rje7mibKZBpGEDuMk7q3NT5RC"
   },
   {
     "username": "Hera",
-    "password": "password12345"
+    "password": "$2b$10$5JyJNSEe3viS49Z5t9jrl.KZ9AwaBkb/UwMbexW866q/SshzqHeMm"
   },
   {
     "username": "Athena",
-    "password": "password12345"
+    "password": "$2b$10$G.G72IcTIiqCX3ftSBm1FeOz1hw0k27Vrta/IDE4qCQd7ni5WM7Za"
   }
 ]

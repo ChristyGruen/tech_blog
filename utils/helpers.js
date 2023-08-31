@@ -1,8 +1,8 @@
 module.exports = {
   format_date: (date) => {
     // Format date as MM/DD/YYYY
-    return
-    // return date.toLocaleDateString();
+    // return
+    return date.toLocaleDateString();
   },
   format_amount: (amount) => {
     // format large numbers with commas
@@ -27,11 +27,11 @@ module.exports = {
   //   return null;
   // }
   //arrow function
-  section:(name, options) =>{
-    if(!this._sections) this._sections ={};
-    this._sections[name] = options.fn(this);
-    return null;
-  },
+  // section:(name, options) =>{
+  //   if(!this._sections) this._sections ={};
+  //   this._sections[name] = options.fn(this);
+  //   return null;
+  // }
 
 
 };
