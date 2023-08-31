@@ -44,8 +44,10 @@ const loginFormHandler = async (event) => {
 //   }
 // };
 
+// was calling by class, changed to reference to grab by id
+
 document
-  .querySelector('.login-btn')
+  .querySelector('#login-btn')
   .addEventListener('click', loginFormHandler);
 
 // document
